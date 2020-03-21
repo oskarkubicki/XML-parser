@@ -37,7 +37,10 @@ namespace Project2apmbd
 
                     if (array.Length != 9) {
 
+                       
+
                         File.AppendAllText(@"Files\log.txt", $"{DateTime.UtcNow}+{"missing values"}+\n");
+                        continue;
 
 
                     }

@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 
 namespace Project2apmbd.Models
 {
-    class Student
+     public class Student
     {
 
         public Student() { }

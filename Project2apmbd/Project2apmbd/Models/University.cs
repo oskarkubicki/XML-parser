@@ -12,7 +12,7 @@ namespace Project2apmbd.Models
         public University()
         {
 
-
+            Students = new HashSet<Student>();
             CreatedAt = DateTime.Now.ToString();
             Author = "Oskar Kubicki";
         }
@@ -23,6 +23,6 @@ namespace Project2apmbd.Models
         [XmlAttribute(AttributeName = "createdAt")]
         public string CreatedAt { get; set; }
 
-        HashSet<Student> Students { get; set; }
+        public HashSet<Student> Students { get; set; }
     }
 }

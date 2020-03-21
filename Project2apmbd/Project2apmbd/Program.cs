@@ -17,8 +17,8 @@ namespace Project2apmbd
 
             var output = args.Length > 1 ? args[1] : @"Files\result";
             var outputtype = args.Length > 2 ? args[2] : "xml";
-
-            var University = new University();
+ University university = new University();
+         
             List<Student> studentlist = new List<Student>();
 
             var lines = System.IO.File.ReadAllLines(@"Files\data.csv");
@@ -27,7 +27,7 @@ namespace Project2apmbd
 
                 String[] array = line.Split(",");
 
-                studentlist.Add(new Student(array[0], array[1],array[2],array[3],array[4],array[5], array[6]));
+                university.Students.Add(new Student(array[0], array[1],array[2],array[3],array[4],array[5], array[6],array[7],array[8]));
 
 
 
@@ -35,9 +35,18 @@ namespace Project2apmbd
 
             using var writer = new FileStream($"{output}", FileMode.Create);
             var serializer = new XmlSerializer(typeof(University));
-            serializer.Serialize(writer, University);
 
-            var jsonString = JsonSerializer.Serialize(writer, University);
+
+           
+            serializer.Serialize(writer, university);
+
+
+
+
+            var jsonString = JsonSerializer.Serialize( university);
+
+            File.WriteAllText(@"Files:\dataj.json",jsonString);
+     
 
         }
     }

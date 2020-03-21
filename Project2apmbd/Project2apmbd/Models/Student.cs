@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Xml.Serialization;
+
 
 namespace Project2apmbd.Models
 {
@@ -32,6 +34,8 @@ namespace Project2apmbd.Models
         public string email { get; set; }
 
         [XmlAttribute]
+
+        [JsonPropertyName("index nr")]
         public string indexnumber { get; set; }
 
         public string mothersname { get; set; }

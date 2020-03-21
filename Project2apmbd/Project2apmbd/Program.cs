@@ -7,6 +7,7 @@ using System.Collections.Generic;
 
 using System.Text.Json;
 using Project2apmbd.Models;
+using Newtonsoft.Json;
 
 namespace Project2apmbd
 {
@@ -34,6 +35,13 @@ namespace Project2apmbd
 
                 String[] array = line.Split(",");
 
+                    if (array.Length != 9) {
+
+                        File.AppendAllText(@"Files\log.txt", $"{DateTime.UtcNow}+{"missing values"}+\n");
+
+
+                    }
+
                 university.Students.Add(new Student(array[0], array[1],array[2],array[3],array[4],array[5], array[6],array[7],array[8]));
 
 
@@ -49,13 +57,12 @@ namespace Project2apmbd
 
 
 
+                var jsonString = System.Text.Json.JsonSerializer.Serialize(university);
+                File.WriteAllText(@"Files\data.json", jsonString);
 
-            var jsonString = JsonSerializer.Serialize( university);
-
-            File.WriteAllText(@"Files:\dataj.json",jsonString);
 
             }
-            catch (FileNotFoundException e) { File.AppendAllText(@"Files\log.txt", $"{DateTime.UtcNow}+{e.Message}+{e.FileName}"); }
+            catch (FileNotFoundException e) { File.AppendAllText(@"Files\log.txt", $"{DateTime.UtcNow}+{e.Message}+{e.FileName}\n"); }
         }
     }
 }

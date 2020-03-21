@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Xml.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Project2apmbd.Models
 {
@@ -17,10 +18,12 @@ namespace Project2apmbd.Models
             Author = "Oskar Kubicki";
         }
         [XmlAttribute]
+        [JsonPropertyName("Author")]
 
         public string Author { get; set; }
 
         [XmlAttribute(AttributeName = "createdAt")]
+        [JsonPropertyName("createdAt")]
         public string CreatedAt { get; set; }
 
         public HashSet<Student> Students { get; set; }

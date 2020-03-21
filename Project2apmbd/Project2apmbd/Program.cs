@@ -15,11 +15,18 @@ namespace Project2apmbd
         static void Main(string[] args)
         {
 
+
+            var source = args.Length > 0 ? args[0] : @"Files\data.csv";
+
             var output = args.Length > 1 ? args[1] : @"Files\result";
             var outputtype = args.Length > 2 ? args[2] : "xml";
  University university = new University();
          
             List<Student> studentlist = new List<Student>();
+            try { 
+
+            if (!File.Exists(source))
+                throw new FileNotFoundException("error",source ); 
 
             var lines = System.IO.File.ReadAllLines(@"Files\data.csv");
             foreach (string line in lines)
@@ -46,8 +53,9 @@ namespace Project2apmbd
             var jsonString = JsonSerializer.Serialize( university);
 
             File.WriteAllText(@"Files:\dataj.json",jsonString);
-     
 
+            }
+            catch (FileNotFoundException e) { File.AppendAllText(@"Files\log.txt", $"{DateTime.UtcNow}+{e.Message}+{e.FileName}"); }
         }
     }
 }

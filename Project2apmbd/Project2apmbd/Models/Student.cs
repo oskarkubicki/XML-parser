@@ -16,7 +16,7 @@ namespace Project2apmbd.Models
             this.email = email;
             this.firstname = name;
             this.lastname = last;
-            new Studies(studiesname, mode);
+            studies= new Studies(studiesname, mode);
             this.indexnumber = sindexnumber;
             this.birthdate = birthdate;
             this.email = email;

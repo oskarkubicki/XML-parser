@@ -1,1 +1,1 @@
-A XML parser written in C#
+An XML parser written in C#

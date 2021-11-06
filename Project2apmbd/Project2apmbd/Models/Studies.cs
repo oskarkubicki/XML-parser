@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Project2apmbd.Models
+﻿namespace Project2apmbd.Models
 {
     public class Studies
     {
+        public Studies()
+        {
+        }
 
-        public Studies() { }
 
-
-        public Studies(string name, string mode) {
+        public Studies(string name, string mode)
+        {
             this.name = name;
             this.mode = mode;
         }
@@ -19,7 +17,5 @@ namespace Project2apmbd.Models
         public string name { get; set; }
 
         public string mode { get; set; }
-
-
     }
 }
